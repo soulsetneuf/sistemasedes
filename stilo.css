@@ -1,0 +1,66 @@
+h1{
+	background:#009ea0;
+	color:white;
+	padding: 0.65em 0.4em 0.65em 0.65em;
+	font: 2em/1.25em 'montserratbold', Arial, Helvetica, sans-serif;
+	width: 40%;
+}
+.caja_texto{
+	background: #f3f3f3;
+	border: 1px solid #ccc;
+	color: #000;
+	display: block;
+	margin-bottom: 1em;
+	margin-top: .3em;
+	text-indent: .3em;
+	width: 99%;
+	padding: .5em 0;
+}
+.texto{
+	  border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+      margin: 0;
+      padding: 0;
+}
+.boton
+{
+	width: 90px;
+	height: 40px;
+    color: white;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+	border-radius: 4px;
+    background-color: #F6193F;
+    border: 1px solid #f6193f;
+}
+.boton:hover
+{
+    background-color: #000;
+    border-color: #000;
+}
+/*.contenedor_footer {
+	background: #201f1e;
+	position: relative;
+	height: 100px;
+	text-align: center;
+	padding: 10px 0 0 0;
+	font-family: 'montserratregular', serif;
+	clear: both;
+}*/
+.contenedor_principal {
+width: 999px;
+}
+.contenedor_formulario{
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+}
