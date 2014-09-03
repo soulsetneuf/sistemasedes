@@ -15,6 +15,7 @@
     "4" => "queue_table",
     "5" => "queue_member_table",
     "6" => "meet_me",
+    "7" => "vista_usuarios",
     );
   	function __construct()
   	{
@@ -38,8 +39,10 @@
 	      echo "<td>Accion</td>";
           echo "</tr>";
     }
-    public function MostrarTabla($consulta,$tabla)
+    public function MostrarTabla($nt)
     {
+        $tabla=$this->array[$nt];
+        $consulta="select * from ".$tabla; 
     	  echo "<table>";
     	  $codigo="";
           $this->query = $this->EjecutarConsulta($consulta);
@@ -53,18 +56,20 @@
 		      foreach($fields as $fi => $f)  
 		      { 
 		      	echo "<td class='texto'>".$row[$f->name]."</td>";
-		      	if ($f->name=="Codigo") {
+		      	if ($f->name=="cod") {
 		      	 	$codigo=$row[$f->name];
 		      	 } 
 		      } 
-		      echo "<td><a href='eliminar.php?c=$codigo&&n=$tabla'>eliminar</a> <a href='actualizar.php?c=$codigo&&n=$tabla'>actualizar</a></td>";
+		      echo "<td><a href='eliminar.php?c=$codigo&&n=$nt'>eliminar</a> <a href='actualizar.php?c=$codigo&&n=$nt'>actualizar</a></td>";
 	          echo "</tr>";
 	      }
 	      echo "</table>";
     }
-    public function MostrarFormulario($consulta,$tabla)
+    public function MostrarFormulario($cod,$nt)
     {
-          $this->query = $this->EjecutarConsulta($consulta);
+        $tabla=$this->array[$nt];
+        $consulta="select * from ".$tabla." where cod='".$cod."'";
+        $this->query = $this->EjecutarConsulta($consulta);
 	      $row = mysqli_fetch_array($this->query, MYSQLI_ASSOC);
 	      $fields = mysqli_fetch_fields($this->query); 
 		  echo "<form method='POST' action='actualizar2.php'>";
@@ -73,7 +78,7 @@
 		  { 
 		  	echo "<tr><td class='texto'>".$f->name."</td><td><input type='text' name='".$f->name."' value='".$row[$f->name]."' class='caja_texto'></td></tr>";
 		  } 
-		  echo "<input type=hidden value=".$tabla." name='Tabla'>";
+		  echo "<input type=hidden value=".$nt." name='nt'>";
 		  echo "<tr><td><input type=submit value=Guardar class='boton'></td></tr>";
 		  echo "</table>";
 		  echo "</form>";
@@ -83,17 +88,17 @@
     	   
     	  $n = (count($vector)-1);
     	  $ct=1;
-          $tabla=$this->array[$vector['Tabla']];
+          $tabla=$this->array[$vector['nt']];
           $this->query = $this->EjecutarConsulta("select * from ".$tabla);
 	      $fields = mysqli_fetch_fields($this->query); 
 		  
 		  foreach($fields as $fi => $f)  
 		  {
-		  	 if ($f->name!="Codigo") {
+		  	 if ($f->name!="cod") {
 		  	 	$consulta=" update ".$tabla." set "; 
 		  	    $consulta=$consulta.$f->name."='".$vector[$f->name]."'";
-		        $consulta=$consulta." where Codigo='".$vector['Codigo']."'";
-		  	    $this->EjecutarConsulta($consulta); 
+		        $consulta=$consulta." where cod='".$vector['cod']."'";
+            $this->EjecutarConsulta($consulta); 
 		  	 }
 		  }     
     }

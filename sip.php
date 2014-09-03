@@ -1,3 +1,7 @@
+<?php 
+  require_once "menu.php";
+  $m=new Menu();
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +11,6 @@
 	<link rel="stylesheet" type="text/css" href="stilo.css">
 </head>
 <body>
-<a href="sip.php">Registrar usuarios</a><br>
-<a href="lista.php">Lista</a><br>
 <div class="contenedor_principal">
     <div class="contenedor_formulario">
        <h1>Registro de usuarios SIP</h1>
@@ -20,6 +22,7 @@
 	       <tr><td><input type="password" name="secret" class="caja_texto"></td></tr>
 	       <tr><td class="texto">Numero</td></tr>
 	       <tr><td><input type="text" name="exten" class="caja_texto"></td></tr>
+	       <input type="hidden" name="nt" value="1">
 	       <tr><td><input type="submit" name="guardar" value='Aceptar' class="boton"></td></tr>	
 	     </table>	 
 	   </form>

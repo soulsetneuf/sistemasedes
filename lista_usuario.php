@@ -3,6 +3,7 @@
    require_once "menu.php";
    $m=new Menu();
    $c=new Coneccion();
+   $consulta="select * from vista_usuarios";
  ?>
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,7 @@
 </head>
 <body>
      <h1>Lista de usuarios</h1>
-    <?php  $c->MostrarTabla($_GET['c']); ?>
+    <?php  $c->MostrarTabla($consulta,7); ?>
         
 </body>
 </html>

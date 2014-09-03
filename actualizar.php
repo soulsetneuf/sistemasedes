@@ -3,7 +3,6 @@
   require_once "menu.php";
   $c=new Coneccion();
   $m=new Menu();
-  $consulta="select * from v_usuarios where codigo='".$_GET['c']."'";
  ?>
  <!DOCTYPE html>
  <html>
@@ -14,7 +13,7 @@
  <body>
     <h1>Actualizar SIP</h1>
     <?php 
-         $c->MostrarFormulario($consulta,$_GET['n']); 
+         $c->MostrarFormulario($_GET['c'],$_GET['n']); 
     ?>
  </body>
  </html>

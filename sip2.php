@@ -3,4 +3,5 @@
    $c=new Coneccion();
    $query="call registrar_usuario('".$_POST['NAME']."','".$_POST['secret']."','".$_POST['exten']."');";
    $c->EjecutarConsulta($query);
+   header("location:lista.php?c=".$_POST['nt']);
  ?>
