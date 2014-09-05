@@ -7,10 +7,9 @@
   	function __construct()
   	{
   		# code...
-  		echo "<a href='sip.php'>Registrar usuarios</a><br>
+  		echo "<a href='registrar_usuarios.php'>Registrar usuarios</a><br>
               <a href='lista.php?c=1'>Lista</a><br>
-              <a href='nuevo_usuario.php'>Nuevo usuario</a><br>
-              <a href='lista.php?c=7'>Lista Usuarios</a><br>";
+              <a href='buzon_de_voz.php'>Buzon de voz</a><br>";
 
   	}
   };

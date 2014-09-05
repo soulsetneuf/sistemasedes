@@ -16,6 +16,7 @@
     "5" => "queue_member_table",
     "6" => "meet_me",
     "7" => "vista_usuarios",
+    "8" => "v_buzon_de_voz",
     );
   	function __construct()
   	{
@@ -36,7 +37,7 @@
 	      { 
 	      	echo "<td>".$f->name."</td>"; 
 	      } 
-	      echo "<td>Accion</td>";
+	      echo "<td>Accion</td><td>Buzon de voz</td><td>Extension</td>";
           echo "</tr>";
     }
     public function MostrarTabla($nt)
@@ -45,6 +46,7 @@
         $consulta="select * from ".$tabla; 
     	  echo "<table>";
     	  $codigo="";
+        $numero="";
           $this->query = $this->EjecutarConsulta($consulta);
           $this->MostrarField($consulta);
           $rows = mysqli_num_rows($this->query);
@@ -59,8 +61,14 @@
 		      	if ($f->name=="cod") {
 		      	 	$codigo=$row[$f->name];
 		      	 } 
+             if ($f->name=="Numero") {
+              $numero=$row[$f->name];
+             } 
 		      } 
-		      echo "<td><a href='eliminar.php?c=$codigo&&n=$nt'>eliminar</a> <a href='actualizar.php?c=$codigo&&n=$nt'>actualizar</a></td>";
+		      echo "<td><a href='eliminar.php?c=$codigo&&n=$nt'>eliminar</a> 
+                    <a href='actualizar.php?c=$codigo&&n=$nt'>actualizar</a>
+                </td>
+                <td><a href='actualizar.php?c=$numero&&n=8'>Editar</a></td>";
 	          echo "</tr>";
 	      }
 	      echo "</table>";
